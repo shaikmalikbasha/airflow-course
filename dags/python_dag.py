@@ -33,8 +33,9 @@ with DAG(
     default_args=default_args,
     dag_id="PythonDagId-v01",
     start_date=datetime(2023, 12, 31),
-    schedule_interval="@daily",
+    schedule_interval="@once",
     description="Python Example Dag",
+    catchup=False,
 ) as dag:
     """
     DAG to fetch and display Name and Age

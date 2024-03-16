@@ -5,10 +5,10 @@ from datetime import timedelta
 
 import httpx
 from airflow import DAG
+from airflow.operators.python import PythonOperator
 from airflow.providers.http.sensors.http import HttpSensor
 from airflow.sensors.filesystem import FileSensor
 from airflow.utils.dates import days_ago
-from airflow.operators.python import PythonOperator
 
 default_args = {
     "owner": "airflow",
@@ -23,6 +23,7 @@ default_args = {
 # described in the file forex_currencies.csv
 def download_rates():
     logging.info("The downloading has been started...")
+    logging.info("Execution Date of this run is: {{ ds }} with run_id: {{ run_id }}")
     BASE_URL = "https://gist.githubusercontent.com/marclamberti/f45f872dea4dfd3eaa015a4a1af4b39b/raw/"
     ENDPOINTS = {
         "USD": "api_forex_exchange_usd.json",
@@ -43,7 +44,7 @@ def download_rates():
 
 
 with DAG(
-    dag_id="forex-data-pipeline-v1",
+    dag_id="forex-data-pipeline",
     description="",
     schedule="@once",
     # schedule_interval="@once",

@@ -61,10 +61,16 @@ def httpx_example():
         props = ["name", "catchPhrase", "bs"]
         return get_objs(data, props)
 
+    @task()
+    def write_users(users):
+        with open("/opt/airflow/dags/files/users.json", "a+", encoding="utf-8") as f:
+            json.dump(users, f)
+
     data = extract_data()
     users = process_users(data)
     addresses = process_addresses(data)
     companies = process_companies(data)
+    write_users(users)
 
 
 httpx_example()
