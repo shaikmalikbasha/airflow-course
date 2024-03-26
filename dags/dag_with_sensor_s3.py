@@ -4,7 +4,7 @@ from airflow import DAG
 from airflow.providers.amazon.aws.sensors.s3 import S3KeySensor
 
 default_args = {
-    "owner": "shaikmalikbasha583",
+    "owner": "Airflow",
     "retries": 2,
     "retry_delay": timedelta(minutes=2),
 }

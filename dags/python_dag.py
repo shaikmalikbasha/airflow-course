@@ -24,7 +24,7 @@ def greet(ti) -> None:
 
 
 default_args = {
-    "owner": "shaikmalikbasha583",
+    "owner": "Airflow",
     "retries": 3,
     "retry_delay": timedelta(minutes=3),
 }

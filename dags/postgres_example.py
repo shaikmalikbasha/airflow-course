@@ -5,7 +5,7 @@ from airflow import DAG
 from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 
 default_args = {
-    "owner": "shaikmalikbasha583",
+    "owner": "Airflow",
     "retries": 5,
     "retry_delay": timedelta(minutes=2),
 }

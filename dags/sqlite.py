@@ -6,7 +6,7 @@ from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 # from airflow.providers.postgres.operators.postgres import PostgresOperator
 
 default_args = {
-    "owner": "shaikmalikbasha583",
+    "owner": "Airflow",
     "retries": 5,
     "retry_delay": timedelta(minutes=2),
 }

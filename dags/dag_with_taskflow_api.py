@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from airflow.decorators import dag, task
 
 default_args = {
-    "owner": "shaikmalikbasha583",
+    "owner": "Airflow",
     "retries": 5,
     "retry_delay": timedelta(minutes=2),
 }
